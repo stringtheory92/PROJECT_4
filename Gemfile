@@ -28,3 +28,11 @@ group :development do
   # gem "spring"
 end
 
+
+gem "serializer", "~> 1.0"
+
+gem "awesome_print", "~> 1.9"
+
+gem "hirb", "~> 0.7.3"
+
+gem "active_model_serializers", "~> 0.10.13"
