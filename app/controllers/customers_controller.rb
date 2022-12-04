@@ -1,6 +1,6 @@
 class CustomersController < ApplicationController
     wrap_parameters format: []
-    before_action :found_customer
+    # before_action :found_customer
 
     def index 
         render json: Customer.all, status: :ok
@@ -14,6 +14,7 @@ class CustomersController < ApplicationController
         end
     end
     def create
+        byebug
         customer = Customer.create!(customer_params)
         render json: customer, status: :created
     end

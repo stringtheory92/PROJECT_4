@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import "./App.css";
+import Navbar from "./components/Navbar";
+import Login from "./components/Login";
+import Home from "./components/Home";
 
 function App() {
   // const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -14,6 +17,8 @@ function App() {
           setCustomer(customer);
           // setIsLoggedIn(true);
         });
+      } else {
+        console.log("no one logged in");
       }
     });
   }, []);
@@ -25,6 +30,7 @@ function App() {
   // };
 
   const onSignIn = (customer) => {
+    console.log("customer: ", customer);
     setCustomer(customer);
     // toggleLogIn();
   };
