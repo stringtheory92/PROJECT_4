@@ -14,9 +14,13 @@ class CustomersController < ApplicationController
         end
     end
     def create
-        byebug
+        
         customer = Customer.create!(customer_params)
-        render json: customer, status: :created
+        if customer.valid?
+            render json: customer, status: :created
+        else 
+            render json: {errors: user.errors.full_messages}, status: :unprocessable_entity
+        end
     end
     def destroy
         @customer.destroy!
@@ -30,6 +34,6 @@ class CustomersController < ApplicationController
     # end
 
     def customer_params
-        params.permit(:name, :password)
+        params.permit(:name, :password, :password_confirmation)
     end
 end
