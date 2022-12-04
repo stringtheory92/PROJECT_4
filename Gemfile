@@ -38,3 +38,5 @@ gem "hirb", "~> 0.7.3"
 gem "active_model_serializers", "~> 0.10.13"
 
 gem "bcrypt", "~> 3.1"
+
+gem "faker", "~> 3.0"

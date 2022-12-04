@@ -82,6 +82,8 @@ GEM
       irb (>= 1.5.0)
       reline (>= 0.3.1)
     erubi (1.11.0)
+    faker (3.0.0)
+      i18n (>= 1.8.11, < 2)
     globalid (1.0.0)
       activesupport (>= 5.0)
     hirb (0.7.3)
@@ -169,6 +171,7 @@ DEPENDENCIES
   awesome_print (~> 1.9)
   bcrypt (~> 3.1)
   debug
+  faker (~> 3.0)
   hirb (~> 0.7.3)
   puma (~> 5.0)
   rails (~> 7.0.4)
