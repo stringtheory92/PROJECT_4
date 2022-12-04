@@ -6,7 +6,12 @@ class CustomersController < ApplicationController
         render json: Customer.all, status: :ok
     end
     def show 
-        render json: @customer, status: :ok
+        customer = Customer.find_by(id: session[:customer_id])
+        if customer
+            render json: customer, status: :ok
+        else
+            render json: {error: "Not authorized"}, status: :unauthorized
+        end
     end
     def create
         customer = Customer.create!(customer_params)
@@ -19,9 +24,9 @@ class CustomersController < ApplicationController
 
     private
 
-    def found_customer
-        @customer = Customer.find(params[:id])
-    end
+    # def found_customer
+    #     @customer = Customer.find(params[:id])
+    # end
 
     def customer_params
         params.permit(:name, :password)
