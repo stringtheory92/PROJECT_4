@@ -16,7 +16,7 @@ puts "seeding..."
 15.times do
     costume = Costume.create(
         name: Faker::DcComics.hero,
-        price: rand(19.99...85.98)
+        price: rand(19.99...85.98).round(2)
     )
 end
 
