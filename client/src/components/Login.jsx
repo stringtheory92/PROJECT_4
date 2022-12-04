@@ -11,6 +11,7 @@ function Login({ onSignIn }) {
     password: "",
     passwordConfirmation: "",
   });
+  const [errors, setErrors] = useState({});
 
   const toggleHasAcct = () => {
     setHasAcct((status) => !status);
@@ -24,8 +25,24 @@ function Login({ onSignIn }) {
 
   const handleLoginSubmit = (e) => {
     e.preventDefault();
+    const { name, password } = formData;
 
-    // fetch("");
+    fetch("/login", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({
+        name: name,
+        password: password,
+      }),
+    }).then((r) => {
+      if (r.ok) {
+        r.json().then(onSignIn);
+      } else {
+        r.json().then(setErrors);
+      }
+    });
   };
 
   const handleCreateAcctSubmit = (e) => {
@@ -69,6 +86,7 @@ function Login({ onSignIn }) {
           />
           <button type="submit">Sign in</button>
           <button onClick={toggleHasAcct}>Don't have an account?</button>
+          {errors ? <p>{errors.error}</p> : null}
         </form>
       ) : (
         <form action="" onSubmit={handleCreateAcctSubmit}>
