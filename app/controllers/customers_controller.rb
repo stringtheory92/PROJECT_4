@@ -1,4 +1,5 @@
 class CustomersController < ApplicationController
+    wrap_parameters format: []
     before_action :found_customer
 
     def index 
