@@ -11,41 +11,34 @@ Cart.destroy_all
 Costume.destroy_all
 Customer.destroy_all
 Favorite.destroy_all
-puts "..."
+puts "seeding..."
 
 15.times do
-    Costume.create(
+    costume = Costume.create(
         name: Faker::DcComics.hero,
         price: rand(19.99...85.98)
     )
 end
 
 7.times do
-    Customer.create(
+    customer = Customer.create(
         name: Faker::Name.name,
-        password: Faker::String.random(length: 3..12)
+        password: 'GucciMane'
     )
-end
 
-7.times do 
-    Cart.create(
-        customer_id: Customer.all.ids.sample,
-        costume_id: Costume.all.ids.sample
-    )
-end
-
-20.times do
-    CartCostume.create(
-        cart_id: Cart.all.ids.sample,
-        costume_id: Costume.all.ids.sample
-    )
-end
-
-10.times do
-    Favorite.create(
-        customer_id: Customer.all.ids.sample,
-        costume_id: Costume.all.ids.sample
-    )
+    cart = Cart.create(customer_id: customer.id, costume_id: Costume.all.ids.sample)
+    rand(2..10).times do
+            CartCostume.create(
+                cart_id: cart.id,
+                costume_id: Costume.all.ids.sample
+            )
+    end
+    rand(1..7).times do
+        Favorite.create(
+            customer_id: customer.id,
+            costume_id: Costume.all.ids.sample
+        )
+    end
 end
 
 puts "Done seeding!"
