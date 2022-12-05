@@ -1,23 +1,59 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import { Route, Routes, useNavigate } from "react-router-dom";
+import "./App.css";
+import Navbar from "./components/Navbar";
+import Login from "./components/Login";
+import Home from "./components/Home";
 
 function App() {
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [customer, setCustomer] = useState(null);
+
+  useEffect(() => {
+    fetch("/me").then((r) => {
+      if (r.ok) {
+        r.json().then((customer) => {
+          console.log("customer: ", customer);
+          setCustomer(customer);
+          // setIsLoggedIn(true);
+        });
+      } else {
+        console.log("no one logged in");
+      }
+    });
+  }, []);
+  // const toggleLogIn = () => {
+  //   if (isLoggedIn) {
+  //     navigate("/");
+  //   }
+  //   setIsLoggedIn((status) => !status);
+  // };
+
+  const onSignIn = (customer) => {
+    console.log("customer: ", customer);
+    setCustomer(customer);
+    // toggleLogIn();
+  };
+  const onLogout = () => {
+    setCustomer(null);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar onLogout={onLogout} />
+      <Routes>
+        <Route
+          exact
+          path="/"
+          element={
+            customer ? (
+              <Home />
+            ) : (
+              <Login replace to={"/login"} onSignIn={onSignIn} />
+            )
+          }
+        />
+      </Routes>
     </div>
   );
 }
