@@ -11,6 +11,12 @@ import Collection from "./components/Collection";
 import CostumeCardPage from "./components/CostumeCardPage";
 
 const GlobalStyle = createGlobalStyle`
+  :root {
+    --white: rgb(206, 209, 219);
+    --golden: rgb(245, 212, 64);
+    --red: rgb(209, 30, 6);
+  }
+
 * {
   box-sizing: border-box;
 

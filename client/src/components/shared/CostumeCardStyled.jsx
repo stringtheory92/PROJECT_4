@@ -15,7 +15,7 @@ const CostumeCardStyled = styled.div`
   );
   border-radius: 30px;
   box-shadow: 4px 4px 10px #333;
-  color: rgb(206, 209, 219);
+  color: var(--white);
   > img {
     border: 1px solid lightgray;
     /* width: 100%; */
@@ -23,6 +23,17 @@ const CostumeCardStyled = styled.div`
   }
   > h2 {
     font-size: 1.2rem;
+  }
+  > p {
+    color: var(--golden);
+    font-weight: bold;
+    font-size: 1.3rem;
+  }
+  > p > .only {
+    color: var(--red);
+    font-style: italic;
+    font-size: 1rem;
+    text-decoration: line-through;
   }
 `;
 
