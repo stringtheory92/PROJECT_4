@@ -15,11 +15,24 @@ function Collection() {
 
   console.log("collection: ", collection);
 
+  const pageStyles = {
+    padding: "3rem",
+  };
+
+  const cardGridStyles = {
+    display: "grid",
+    gridTemplateColumns: "repeat(4, 1fr)",
+    // gap: "1rem",
+  };
+
   return (
-    <>
-      <div>Collection</div>
-      {displayedCostumes}
-    </>
+    <div style={pageStyles}>
+      <h1>Collection</h1>
+      <div style={cardGridStyles}>
+        {displayedCostumes}
+        {/* <div>{displayedCostumes}</div> */}
+      </div>
+    </div>
   );
 }
 

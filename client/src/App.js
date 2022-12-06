@@ -2,11 +2,20 @@
 
 import React, { useEffect, useState } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
+import { createGlobalStyle } from "styled-components";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Login from "./components/Login";
 import Home from "./components/Home";
 import Collection from "./components/Collection";
+
+const GlobalStyle = createGlobalStyle`
+* {
+  box-sizing: border-box;
+
+}
+
+`;
 
 function App() {
   // const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -45,6 +54,7 @@ function App() {
 
   return (
     <div className="App">
+      <GlobalStyle />
       <Navbar onLogout={onLogout} />
       <Routes>
         <Route
