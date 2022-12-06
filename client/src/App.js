@@ -8,6 +8,7 @@ import Navbar from "./components/Navbar";
 import Login from "./components/Login";
 import Home from "./components/Home";
 import Collection from "./components/Collection";
+import CostumeCardPage from "./components/CostumeCardPage";
 
 const GlobalStyle = createGlobalStyle`
 * {
@@ -21,6 +22,7 @@ function App() {
   // const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
   const [customer, setCustomer] = useState(null);
+  const [hasAcct, setHasAcct] = useState(true);
 
   useEffect(() => {
     fetch("/me").then((r) => {
@@ -35,6 +37,10 @@ function App() {
       }
     });
   }, []);
+
+  const toggleHasAcct = () => {
+    setHasAcct((status) => !status);
+  };
   // const toggleLogIn = () => {
   //   if (isLoggedIn) {
   //     navigate("/");
@@ -64,11 +70,18 @@ function App() {
             customer ? (
               <Home />
             ) : (
-              <Login replace to={"/login"} onSignIn={onSignIn} />
+              <Login
+                replace
+                to={"/login"}
+                onSignIn={onSignIn}
+                hasAcct={hasAcct}
+                toggleHasAcct={toggleHasAcct}
+              />
             )
           }
         />
         <Route path="/collection" element={<Collection />} />
+        <Route path="/collection/:id" element={<CostumeCardPage />} />
       </Routes>
     </div>
   );
