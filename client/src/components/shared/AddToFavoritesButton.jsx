@@ -8,6 +8,7 @@ const AddToFavoritesButton = styled.button`
   margin: 1rem;
   color: white;
   font-size: 1rem;
+
   font-weight: bold;
   background-color: rgb(222, 71, 60);
   border: none;

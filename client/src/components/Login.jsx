@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
+import { LoginPageStyled, AddToCartButton } from "./shared";
+import closet_bg from "../bgs/closet_bg.jpg";
 
 function Login({ onSignIn, hasAcct, toggleHasAcct }) {
   const [testLoginName, setTestLoginName] = useState("");
@@ -70,65 +72,93 @@ function Login({ onSignIn, hasAcct, toggleHasAcct }) {
       .then(onSignIn);
   };
 
+  const bgStyles = {
+    backgroundImage: `url(${closet_bg})`,
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+  };
+
   return (
-    <div>
-      {hasAcct ? (
-        <div>
-          <form action="" onSubmit={handleLoginSubmit}>
-            <h2>{`Test Name: ${testLoginName}`}</h2>
-            <h2>{`Test Password: GucciMane`}</h2>
-            <label htmlFor="name">User Name</label>
-            <input
-              type="text"
-              name="name"
-              id=""
-              value={formData.name}
-              onChange={handleChange}
-            />
-            <label htmlFor="password">Password</label>
-            <input
-              type="text"
-              name="password"
-              id=""
-              value={formData.password}
-              onChange={handleChange}
-            />
-            <button type="submit">Sign in</button>
-            {errors ? <p>{errors.error}</p> : null}
-          </form>
-          <button onClick={toggleHasAcct}>Don't have an account?</button>
-        </div>
-      ) : (
-        <form action="" onSubmit={handleCreateAcctSubmit}>
-          <label htmlFor="name">User Name</label>
-          <input
-            type="text"
-            name="name"
-            id=""
-            value={newAcctForm.name}
-            onChange={handleChange}
-          />
-          <label htmlFor="password">Password</label>
-          <input
-            type="text"
-            name="password"
-            id=""
-            value={newAcctForm.password}
-            onChange={handleChange}
-          />
-          <label htmlFor="passwordConfirmation">Confirm Password</label>
-          <input
-            type="text"
-            name="passwordConfirmation"
-            id=""
-            value={newAcctForm.passwordConfirmation}
-            onChange={handleChange}
-          />
-          <button type="submit">Create Account</button>
-          <button onClick={toggleHasAcct}>Have an account?</button>
-        </form>
-      )}
-    </div>
+    <LoginPageStyled style={bgStyles}>
+      <div className="formContainerContainer">
+        {hasAcct ? (
+          <div className="formContainer">
+            <form action="" onSubmit={handleLoginSubmit} className="wholeForm">
+              <h2>{`Test Name: ${testLoginName}`}</h2>
+              <h2>{`Test Password: GucciMane`}</h2>
+              <div className="userName labelInputDiv topLabel">
+                <label htmlFor="name">User Name</label>
+                <input
+                  type="text"
+                  name="name"
+                  id=""
+                  value={formData.name}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="password labelInputDiv">
+                <label htmlFor="password">Password</label>
+                <input
+                  type="text"
+                  name="password"
+                  id=""
+                  value={formData.password}
+                  onChange={handleChange}
+                />
+              </div>
+              <AddToCartButton type="submit">Sign in</AddToCartButton>
+              {errors ? <p>{errors.error}</p> : null}
+            </form>
+            <button onClick={toggleHasAcct} className={"accountSwitchBtn"}>
+              Don't have an account?
+            </button>
+          </div>
+        ) : (
+          <div className="formContainer">
+            <form
+              action=""
+              onSubmit={handleCreateAcctSubmit}
+              className="wholeForm"
+            >
+              <div className="userName labelInputDiv topLabel">
+                <label htmlFor="name">User Name</label>
+                <input
+                  type="text"
+                  name="name"
+                  id=""
+                  value={newAcctForm.name}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="userName labelInputDiv">
+                <label htmlFor="password">Password</label>
+                <input
+                  type="text"
+                  name="password"
+                  id=""
+                  value={newAcctForm.password}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="userName labelInputDiv">
+                <label htmlFor="passwordConfirmation">Confirm Password</label>
+                <input
+                  type="text"
+                  name="passwordConfirmation"
+                  id=""
+                  value={newAcctForm.passwordConfirmation}
+                  onChange={handleChange}
+                />
+              </div>
+              <AddToCartButton type="submit">Create Account</AddToCartButton>
+            </form>
+            <button onClick={toggleHasAcct} className={"accountSwitchBtn"}>
+              Have an account?
+            </button>
+          </div>
+        )}
+      </div>
+    </LoginPageStyled>
   );
 }
 

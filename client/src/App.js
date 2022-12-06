@@ -15,11 +15,13 @@ const GlobalStyle = createGlobalStyle`
     --white: rgb(206, 209, 219);
     --golden: rgb(245, 212, 64);
     --red: rgb(209, 30, 6);
+    --blue: rgb(52, 91, 235);
+    --black: #333;
   }
 
 * {
   box-sizing: border-box;
-
+  color: var(--black);
 }
 
 `;
