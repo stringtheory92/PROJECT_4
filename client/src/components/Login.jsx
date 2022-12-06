@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
 
 function Login({ onSignIn }) {
+  const [testLoginName, setTestLoginName] = useState("");
   const [hasAcct, setHasAcct] = useState(true);
   const [formData, setFormData] = useState({
     name: "",
@@ -12,6 +14,12 @@ function Login({ onSignIn }) {
     passwordConfirmation: "",
   });
   const [errors, setErrors] = useState({});
+
+  useEffect(() => {
+    fetch("/first_customer")
+      .then((r) => r.json())
+      .then((customer) => setTestLoginName(customer.name));
+  }, []);
 
   const toggleHasAcct = () => {
     setHasAcct((status) => !status);
@@ -68,6 +76,8 @@ function Login({ onSignIn }) {
     <div>
       {hasAcct ? (
         <form action="" onSubmit={handleLoginSubmit}>
+          <h2>{`Test Name: ${testLoginName}`}</h2>
+          <h2>{`Test Password: GucciMane`}</h2>
           <label htmlFor="name">User Name</label>
           <input
             type="text"

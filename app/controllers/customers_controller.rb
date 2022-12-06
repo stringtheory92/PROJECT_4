@@ -27,6 +27,10 @@ class CustomersController < ApplicationController
         head :no_content
     end
 
+    def first
+        render json: Customer.first, status: :ok
+    end
+
     private
 
     # def found_customer

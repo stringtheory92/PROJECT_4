@@ -1,11 +1,12 @@
 class CostumesController < ApplicationController
-    before_action :found_costume
+    # before_action :found_costume
 
     def index 
+        # byebug
         render json: Costume.all, status: :ok
     end
     def show 
-        render json: @costume, status: :ok
+        render json: Costume.find(params[:id]), status: :ok
     end
     # def create
     #     costume = Costume.create!(costume_params)
