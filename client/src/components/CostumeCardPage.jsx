@@ -70,6 +70,7 @@ function CostumeCardPage({ customer }) {
       .then((newFav) => {
         console.log(newFav);
         setReRenderToggle((status) => !status);
+        setIsFavorited(true);
       });
   };
 
