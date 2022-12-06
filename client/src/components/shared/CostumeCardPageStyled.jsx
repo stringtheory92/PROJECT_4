@@ -16,7 +16,7 @@ const CostumeCardPageStyled = styled.div`
   > .mainContainer > .infoSection {
     border: 1px solid lightgray;
   }
-  > .mainContainer > .infoSection > p {
+  > .mainContainer > .infoSection > .text {
     min-height: 20rem;
   }
 `;

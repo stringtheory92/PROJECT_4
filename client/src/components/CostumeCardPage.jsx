@@ -30,7 +30,22 @@ function CostumeCardPage() {
               <img src={costume.costume_image} alt="" />
             </div>
             <div className="infoSection">
-              <p>Description Text Here</p>
+              <div className="text">
+                <p>Description Text Here</p>
+              </div>
+              <p>
+                Normal Price:{" "}
+                <span
+                  style={{
+                    textDecoration: "line-through",
+                    color: "red",
+                    fontWeight: "600",
+                    fontStyle: "italic",
+                  }}
+                >
+                  ${(costume.price * 1.25).toFixed(2)}
+                </span>
+              </p>
               <div className="buttons">
                 <AddToCartButton>Add To Cart</AddToCartButton>
                 <AddToFavoritesButton onClick={handleAddToFavorites}>
