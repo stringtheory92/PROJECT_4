@@ -81,7 +81,12 @@ function App() {
           }
         />
         <Route path="/collection" element={<Collection />} />
-        <Route path="/collection/:id" element={<CostumeCardPage />} />
+        <Route
+          path="/collection/:id"
+          element={
+            customer ? <CostumeCardPage customer={customer} /> : "Loading"
+          }
+        />
       </Routes>
     </div>
   );

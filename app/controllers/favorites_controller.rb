@@ -1,5 +1,6 @@
 class FavoritesController < ApplicationController
-    before_action :found_favorite
+    wrap_parameters format: []
+    # before_action :found_favorite
 
     def index 
         render json: Favorite.all, status: :ok
@@ -9,6 +10,7 @@ class FavoritesController < ApplicationController
     end
     def create
         favorite = Favorite.create!(favorites_params)
+       
         render json: favorite, status: :created
     end
     def destroy
@@ -18,9 +20,9 @@ class FavoritesController < ApplicationController
 
     private
 
-    def found_favorite
-        @favorite = Favorite.find(params[:id])
-    end
+    # def found_favorite
+    #     @favorite = Favorite.find(params[:id])
+    # end
 
     def favorites_params
         params.permit(:customer_id, :costume_id)
