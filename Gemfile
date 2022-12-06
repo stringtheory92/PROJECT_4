@@ -42,11 +42,8 @@ gem "bcrypt", "~> 3.1"
 gem "faker", "~> 3.0"
 
 gem "byebug", "~> 11.1"
-<<<<<<< HEAD
 gem "rack-cors", "~> 1.1"
-=======
 
 gem "activestorage", "~> 7.0"
 
 gem "image_processing", "~> 1.12"
->>>>>>> origin

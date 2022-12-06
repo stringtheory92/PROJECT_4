@@ -28,10 +28,7 @@ function Collection() {
   return (
     <div style={pageStyles}>
       <h1>Collection</h1>
-      <div style={cardGridStyles}>
-        {displayedCostumes}
-        {/* <div>{displayedCostumes}</div> */}
-      </div>
+      <div style={cardGridStyles}>{displayedCostumes}</div>
     </div>
   );
 }

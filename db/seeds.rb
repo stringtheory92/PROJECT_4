@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
@@ -6,9 +5,7 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-=======
 
->>>>>>> origin
 puts "destroying all..."
 CartCostume.destroy_all
 Cart.destroy_all
@@ -17,18 +14,6 @@ Customer.destroy_all
 Favorite.destroy_all
 puts "seeding..."
 
-<<<<<<< HEAD
-15.times do
-    costume = Costume.create(
-        name: Faker::DcComics.hero,
-        price: rand(19.99...85.98).round(2)
-    )
-end
-
-7.times do
-    customer = Customer.create(
-        name: Faker::Name.name,
-=======
 # 15.times do
 #     costume = Costume.create(
 #         name: Faker::DcComics.hero,
@@ -110,33 +95,16 @@ waldo.costume_image.attach(
 7.times do
     customer = Customer.create(
         name: Faker::Name.first_name,
->>>>>>> origin
         password: 'GucciMane'
     )
 
     cart = Cart.create(customer_id: customer.id)
-<<<<<<< HEAD
-    rand(2..10).times do
-=======
     rand(10..20).times do
->>>>>>> origin
             CartCostume.create(
                 cart_id: cart.id,
                 costume_id: Costume.all.ids.sample
             )
     end
-<<<<<<< HEAD
-    rand(1..7).times do
-        Favorite.create(
-            customer_id: customer.id,
-            costume_id: Costume.all.ids.sample
-        )
-    end
-end
-
-puts "Done seeding!"
-
-=======
     1.times do
         # Gets unique costume_id for Favorites since customer can't favorite the same costume twice
         # def unique_id
@@ -147,14 +115,11 @@ puts "Done seeding!"
         #         return id
         #     end
         # end
-      
         Favorite.create(
             customer_id: customer.id,
             costume_id: Costume.first.id
         )
-      
     end
 end
 
 puts "Done seeding!"
->>>>>>> origin

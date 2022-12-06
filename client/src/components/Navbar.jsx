@@ -10,11 +10,8 @@ function Navbar({ onLogout }) {
 
   return (
     <div>
-<<<<<<< HEAD
       <NavLink to={"./cart"}>Cart</NavLink>
-=======
       <NavLink to="/collection">Collection</NavLink>
->>>>>>> origin
       <button onClick={handleLogout}>logout</button>
     </div>
   );

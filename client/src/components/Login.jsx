@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 
-function Login({ onSignIn }) {
+function Login({ onSignIn, hasAcct, toggleHasAcct }) {
   const [testLoginName, setTestLoginName] = useState("");
-  const [hasAcct, setHasAcct] = useState(true);
+
   const [formData, setFormData] = useState({
     name: "",
     password: "",
@@ -21,9 +21,7 @@ function Login({ onSignIn }) {
       .then((customer) => setTestLoginName(customer.name));
   }, []);
 
-  const toggleHasAcct = () => {
-    setHasAcct((status) => !status);
-  };
+  console.log("hasAcct: ", hasAcct);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -75,29 +73,31 @@ function Login({ onSignIn }) {
   return (
     <div>
       {hasAcct ? (
-        <form action="" onSubmit={handleLoginSubmit}>
-          <h2>{`Test Name: ${testLoginName}`}</h2>
-          <h2>{`Test Password: GucciMane`}</h2>
-          <label htmlFor="name">User Name</label>
-          <input
-            type="text"
-            name="name"
-            id=""
-            value={formData.name}
-            onChange={handleChange}
-          />
-          <label htmlFor="password">Password</label>
-          <input
-            type="text"
-            name="password"
-            id=""
-            value={formData.password}
-            onChange={handleChange}
-          />
-          <button type="submit">Sign in</button>
+        <div>
+          <form action="" onSubmit={handleLoginSubmit}>
+            <h2>{`Test Name: ${testLoginName}`}</h2>
+            <h2>{`Test Password: GucciMane`}</h2>
+            <label htmlFor="name">User Name</label>
+            <input
+              type="text"
+              name="name"
+              id=""
+              value={formData.name}
+              onChange={handleChange}
+            />
+            <label htmlFor="password">Password</label>
+            <input
+              type="text"
+              name="password"
+              id=""
+              value={formData.password}
+              onChange={handleChange}
+            />
+            <button type="submit">Sign in</button>
+            {errors ? <p>{errors.error}</p> : null}
+          </form>
           <button onClick={toggleHasAcct}>Don't have an account?</button>
-          {errors ? <p>{errors.error}</p> : null}
-        </form>
+        </div>
       ) : (
         <form action="" onSubmit={handleCreateAcctSubmit}>
           <label htmlFor="name">User Name</label>
