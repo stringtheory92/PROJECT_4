@@ -5,8 +5,9 @@ class CartsController < ApplicationController
     #     render json: Favorites.all, status: :ok
     # end
     def show 
-        render json: @cart, status: :ok
+        render json:Cart.find(params[:id]), status: :ok
     end
+    
     def create
         cart = Cart.create!(cart_params)
         render json: cart, status: :created

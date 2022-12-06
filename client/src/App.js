@@ -4,6 +4,7 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import Login from "./components/Login";
 import Home from "./components/Home";
+import Cart from "./components/Cart";
 
 function App() {
   // const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -53,6 +54,10 @@ function App() {
             )
           }
         />
+        {customer ? <Route
+        path="/cart"
+        element={<Cart customer={customer}/>}
+        /> : null}
       </Routes>
     </div>
   );

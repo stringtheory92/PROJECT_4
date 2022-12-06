@@ -42,3 +42,4 @@ gem "bcrypt", "~> 3.1"
 gem "faker", "~> 3.0"
 
 gem "byebug", "~> 11.1"
+gem "rack-cors", "~> 1.1"

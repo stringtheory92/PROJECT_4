@@ -26,7 +26,7 @@ end
         password: 'GucciMane'
     )
 
-    cart = Cart.create(customer_id: customer.id, costume_id: Costume.all.ids.sample)
+    cart = Cart.create(customer_id: customer.id)
     rand(2..10).times do
             CartCostume.create(
                 cart_id: cart.id,
