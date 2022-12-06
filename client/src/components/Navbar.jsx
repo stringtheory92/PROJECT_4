@@ -10,7 +10,7 @@ function Navbar({ onLogout }) {
 
   return (
     <div>
-      <NavLink to="/collection" />
+      <NavLink to="/collection">Collection</NavLink>
       <button onClick={handleLogout}>logout</button>
     </div>
   );

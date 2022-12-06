@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :cart_costumes
-  resources :costumes
+  resources :costumes, only: [:index, :show]
   resources :favorites
   resources :customers, only: [:index, :create, :destroy, :update]
   resources :carts
