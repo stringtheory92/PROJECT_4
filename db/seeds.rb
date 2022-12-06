@@ -92,17 +92,28 @@ waldo.costume_image.attach(
     )
 
     cart = Cart.create(customer_id: customer.id)
-    rand(2..10).times do
+    rand(10..20).times do
             CartCostume.create(
                 cart_id: cart.id,
                 costume_id: Costume.all.ids.sample
             )
     end
-    rand(1..7).times do
+    1.times do
+        # Gets unique costume_id for Favorites since customer can't favorite the same costume twice
+        # def unique_id
+        #     id = Costume.all.ids.sample
+        #     if Favorite.where(costume_id: id)
+        #         unique_id()
+        #     else
+        #         return id
+        #     end
+        # end
+      
         Favorite.create(
             customer_id: customer.id,
-            costume_id: Costume.all.ids.sample
+            costume_id: Costume.first.id
         )
+      
     end
 end
 
