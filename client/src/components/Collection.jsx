@@ -22,7 +22,7 @@ function Collection() {
   const cardGridStyles = {
     display: "grid",
     gridTemplateColumns: "repeat(4, 1fr)",
-    // gap: "1rem",
+    gap: "5rem",
   };
 
   return (
