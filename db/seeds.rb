@@ -87,7 +87,7 @@ waldo.costume_image.attach(
 
 7.times do
     customer = Customer.create(
-        name: Faker::Name.name,
+        name: Faker::Name.first_name,
         password: 'GucciMane'
     )
 

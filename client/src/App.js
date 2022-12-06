@@ -10,6 +10,7 @@ import Collection from "./components/Collection";
 
 function App() {
   // const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate();
   const [customer, setCustomer] = useState(null);
 
   useEffect(() => {
@@ -39,6 +40,7 @@ function App() {
   };
   const onLogout = () => {
     setCustomer(null);
+    navigate("/");
   };
 
   return (
