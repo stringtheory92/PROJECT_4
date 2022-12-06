@@ -24,12 +24,12 @@ function CostumeCardPage() {
     <div>
       {costume ? (
         <CostumeCardPageStyled>
-          <h2>{costume.name}</h2>
           <div className="mainContainer">
             <div className="imageContainer">
               <img src={costume.costume_image} alt="" />
             </div>
             <div className="infoSection">
+              <h2>{costume.name}</h2>
               <div className="text">
                 <p>Description Text Here</p>
               </div>
@@ -45,6 +45,15 @@ function CostumeCardPage() {
                 >
                   ${(costume.price * 1.25).toFixed(2)}
                 </span>
+              </p>
+              <p
+                style={{
+                  fontSize: "2rem",
+                  color: "rgb(52, 91, 235)",
+                  fontWeight: "800",
+                }}
+              >
+                <span>NOW</span> for ${costume.price.toFixed(2)}
               </p>
               <div className="buttons">
                 <AddToCartButton>Add To Cart</AddToCartButton>
