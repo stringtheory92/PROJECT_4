@@ -6,6 +6,7 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import Login from "./components/Login";
 import Home from "./components/Home";
+import Collection from "./components/Collection";
 
 function App() {
   // const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -55,6 +56,7 @@ function App() {
             )
           }
         />
+        <Route path="/collection" element={<Collection />} />
       </Routes>
     </div>
   );

@@ -1,14 +1,3 @@
-10.times do
-    Customer.create(name: Faker::Name.first_name, password: '123')
-
-    manny.avatar.attach(
-        io: File.open('./public/avatars/boy-sunglasses.jpg'),
-        filename: 'boy-sunglasses.jpg',
-        content_type: 'application/jpg'
-    )
-
-    costume = Costume.create(name: )
-end
 
 puts "destroying all..."
 CartCostume.destroy_all
@@ -18,12 +7,12 @@ Customer.destroy_all
 Favorite.destroy_all
 puts "seeding..."
 
-15.times do
-    costume = Costume.create(
-        name: Faker::DcComics.hero,
-        price: rand(19.99...85.98).round(2)
-    )
-end
+# 15.times do
+#     costume = Costume.create(
+#         name: Faker::DcComics.hero,
+#         price: rand(19.99...85.98).round(2)
+#     )
+# end
 
 curious_george = Costume.create(name: 'Man in the Yellow Hat set', price: rand(19.99..85.99).round(2))
 curious_george.costume_image.attach(
@@ -102,7 +91,7 @@ waldo.costume_image.attach(
         password: 'GucciMane'
     )
 
-    cart = Cart.create(customer_id: customer.id, costume_id: Costume.all.ids.sample)
+    cart = Cart.create(customer_id: customer.id)
     rand(2..10).times do
             CartCostume.create(
                 cart_id: cart.id,

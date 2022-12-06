@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :favorites
   resources :customers, only: [:index, :create, :destroy, :update]
   resources :carts
+  get '/first_customer', to: 'customers#first'
   get '/me', to: 'customers#show'
   post '/signup', to: 'customers#create'
   post '/login', to: 'sessions#create'
