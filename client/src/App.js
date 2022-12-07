@@ -12,8 +12,9 @@ import CostumeCardPage from "./components/CostumeCardPage";
 
 const GlobalStyle = createGlobalStyle`
   :root {
-    --white: rgb(206, 209, 219);
+    --white: rgb(230, 229, 227);
     --golden: rgb(245, 212, 64);
+    --golden-active: rgb(125, 108, 31);
     --red: rgb(209, 30, 6);
     --blue: rgb(52, 91, 235);
     --black: #333;
@@ -22,6 +23,7 @@ const GlobalStyle = createGlobalStyle`
 * {
   box-sizing: border-box;
   color: var(--black);
+  
 }
 
 `;
@@ -69,7 +71,7 @@ function App() {
   return (
     <div className="App">
       <GlobalStyle />
-      <Navbar onLogout={onLogout} />
+      <Navbar onLogout={onLogout} customer={customer} />
       <Routes>
         <Route
           exact

@@ -6,7 +6,7 @@ const AddToFavoritesButton = styled.button`
   width: 11rem;
   /* padding: 0.5rem, 0.8rem; */
   margin: 1rem;
-  color: white;
+  color: var(--white);
   font-size: 1rem;
 
   font-weight: bold;

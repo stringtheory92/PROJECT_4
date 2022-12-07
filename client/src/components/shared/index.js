@@ -4,6 +4,8 @@ import { CostumeCardPageStyled } from "./CostumeCardPageStyled";
 import { AddToCartButton } from "./AddToCartButton";
 import { AddToFavoritesButton } from "./AddToFavoritesButton";
 import { LoginPageStyled } from "./LoginPageStyled";
+import { NavBarStyled } from "./NavBarStyled";
+import { NavLinksStyled } from "./NavLinksStyled";
 
 export {
   CostumeCardStyled,
@@ -11,4 +13,6 @@ export {
   AddToCartButton,
   AddToFavoritesButton,
   LoginPageStyled,
+  NavBarStyled,
+  NavLinksStyled,
 };
