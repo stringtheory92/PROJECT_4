@@ -1,7 +1,18 @@
 import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import { AddToFavoritesButton } from "./shared";
-import { NavBarStyled, NavLinksStyled } from "./shared";
+import {
+  AddToFavoritesButton,
+  NavBarStyled,
+  NavLinksStyled,
+  CartButtonStyled,
+} from "./shared";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import {
+//   solid,
+//   regular,
+//   brands,
+//   icon,
+// } from "@fortawesome/fontawesome-svg-core/import.macro";
 
 function Navbar({ onLogout, customer }) {
   const navigate = useNavigate();
@@ -13,6 +24,10 @@ function Navbar({ onLogout, customer }) {
   const handleToLogin = () => {
     console.log("clicked");
     navigate("/");
+  };
+
+  const cartBtnStyles = {
+    padding: "0.6rem 1.5rem",
   };
 
   return (
@@ -35,14 +50,26 @@ function Navbar({ onLogout, customer }) {
         </div>
       </div>
       <div className="buttons">
+        {/* <FontAwesomeIcon icon="fa-solid fa-cart-shopping" /> */}
         {customer ? (
-          <AddToFavoritesButton onClick={handleLogout}>
-            logout
-          </AddToFavoritesButton>
+          <div>
+            <CartButtonStyled
+              as={NavLink}
+              to={`/carts/${customer.cart.id}`}
+              style={cartBtnStyles}
+            >
+              Cart
+            </CartButtonStyled>
+            <AddToFavoritesButton onClick={handleLogout}>
+              Log Out
+            </AddToFavoritesButton>
+          </div>
         ) : (
-          <AddToFavoritesButton onClick={handleToLogin}>
-            Please Log In
-          </AddToFavoritesButton>
+          <div>
+            <AddToFavoritesButton onClick={handleToLogin}>
+              Please Log In
+            </AddToFavoritesButton>
+          </div>
         )}
       </div>
     </NavBarStyled>

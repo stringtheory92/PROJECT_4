@@ -6,6 +6,7 @@ import { AddToFavoritesButton } from "./AddToFavoritesButton";
 import { LoginPageStyled } from "./LoginPageStyled";
 import { NavBarStyled } from "./NavBarStyled";
 import { NavLinksStyled } from "./NavLinksStyled";
+import { CartButtonStyled } from "./CartButtonStyled";
 
 export {
   CostumeCardStyled,
@@ -15,4 +16,5 @@ export {
   LoginPageStyled,
   NavBarStyled,
   NavLinksStyled,
+  CartButtonStyled,
 };

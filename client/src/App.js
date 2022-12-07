@@ -9,6 +9,7 @@ import Login from "./components/Login";
 import Home from "./components/Home";
 import Collection from "./components/Collection";
 import CostumeCardPage from "./components/CostumeCardPage";
+import Cart from "./components/Cart";
 
 const GlobalStyle = createGlobalStyle`
   :root {
@@ -90,6 +91,7 @@ function App() {
             )
           }
         />
+        <Route path="/carts/:id" element={<Cart />} />
         <Route path="/collection" element={<Collection />} />
         <Route
           path="/collection/:id"
