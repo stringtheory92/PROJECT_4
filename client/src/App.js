@@ -72,7 +72,7 @@ function App() {
           path="/"
           element={
             customer ? (
-              <Home />
+              <Home customer={customer} />
             ) : (
               <Login
                 replace

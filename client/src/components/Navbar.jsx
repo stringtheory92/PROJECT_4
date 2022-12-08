@@ -29,7 +29,7 @@ function Navbar({ onLogout, customer }) {
   const cartBtnStyles = {
     padding: "0.6rem 1.5rem",
   };
-
+  console.log("customer nav: ", customer);
   return (
     // <div>
     //   <NavLink to={"./cart"}>Cart</NavLink>
@@ -39,8 +39,8 @@ function Navbar({ onLogout, customer }) {
     <NavBarStyled>
       <div className="links">
         <div className="link">
-          <NavLinksStyled as={NavLink} to="/collection">
-            Collection
+          <NavLinksStyled as={NavLink} to="/">
+            Home
           </NavLinksStyled>
         </div>
         <div className="link">
@@ -48,11 +48,11 @@ function Navbar({ onLogout, customer }) {
             Collection
           </NavLinksStyled>
         </div>
-        <div className="link">
+        {/* <div className="link">
           <NavLinksStyled as={NavLink} to="/collection">
             Collection
           </NavLinksStyled>
-        </div>
+        </div> */}
       </div>
       <div className="buttons">
         {/* <FontAwesomeIcon icon="fa-solid fa-cart-shopping" /> */}
