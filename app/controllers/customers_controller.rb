@@ -22,6 +22,14 @@ class CustomersController < ApplicationController
             render json: {errors: user.errors.full_messages}, status: :unprocessable_entity
         end
     end
+
+    def update
+        customer = Customer.find(params[:id])
+        # byebug
+        customer.update!(customer_params)
+        render json: customer, status: :accepted
+    end
+
     def destroy
         @customer.destroy!
         head :no_content
@@ -38,6 +46,6 @@ class CustomersController < ApplicationController
     # end
 
     def customer_params
-        params.permit(:name, :password, :password_confirmation)
+        params.permit(:id, :name, :password, :password_confirmation)
     end
 end

@@ -10,7 +10,7 @@ import wolverine from "../bgs/fat-wolverine.jpeg";
 import wonderWoman from "../bgs/fat-wonder-woman.jpeg";
 import bg from "../bgs/comics_bg.jpg";
 
-function Home() {
+function Home({ customer }) {
   const [isUpdatingCustomer, setIsUpdatingCustomer] = useState(false);
 
   const handleUpdateStateToggle = (e) => {
@@ -93,7 +93,7 @@ function Home() {
           </span>
         </h1>
         {isUpdatingCustomer ? (
-          <CustomerUpdateForm />
+          <CustomerUpdateForm customer={customer} />
         ) : (
           <button onClick={handleUpdateStateToggle}>Update Information</button>
         )}
