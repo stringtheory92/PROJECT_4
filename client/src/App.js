@@ -12,9 +12,19 @@ import Collection from "./components/Collection";
 import CostumeCardPage from "./components/CostumeCardPage";
 
 const GlobalStyle = createGlobalStyle`
+  :root {
+    --white: rgb(230, 229, 227);
+    --golden: rgb(245, 212, 64);
+    --golden-active: rgb(125, 108, 31);
+    --red: rgb(209, 30, 6);
+    --blue: rgb(52, 91, 235);
+    --black: #333;
+  }
+
 * {
   box-sizing: border-box;
-
+  color: var(--black);
+  
 }
 
 `;
@@ -42,13 +52,6 @@ function App() {
   const toggleHasAcct = () => {
     setHasAcct((status) => !status);
   };
-  // const toggleLogIn = () => {
-  //   if (isLoggedIn) {
-  //     navigate("/");
-  //   }
-  //   setIsLoggedIn((status) => !status);
-  // };
-
   const onSignIn = (customer) => {
     console.log("customer: ", customer);
     setCustomer(customer);
@@ -62,7 +65,7 @@ function App() {
   return (
     <div className="App">
       <GlobalStyle />
-      <Navbar onLogout={onLogout} />
+      <Navbar onLogout={onLogout} customer={customer} />
       <Routes>
         <Route
           exact
@@ -85,8 +88,14 @@ function App() {
         path="/cart"
         element={<Cart customer={customer}/>}
         /> : null}
+        <Route path="/carts/:id" element={<Cart />} />
         <Route path="/collection" element={<Collection />} />
-        <Route path="/collection/:id" element={<CostumeCardPage />} />
+        <Route
+          path="/collection/:id"
+          element={
+            customer ? <CostumeCardPage customer={customer} /> : "Loading"
+          }
+        />
       </Routes>
     </div>
   );

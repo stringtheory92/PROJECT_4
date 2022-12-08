@@ -1,25 +1,28 @@
-import React from 'react'
-import Main from './Main'
-import Basket from './Basket'
-import Header from './Header'
-import { useEffect, useState } from 'react'
+
+import React, { useEffect, useState } from 'react'
 
 function Cart({customer}) {
   const [costumes, setCostumes] = useState([])
   const InCartItems = costumes.cart_costumes
-  // console.log(InCartItems)
+  console.log(customer)
+
   useEffect(() => {
-  fetch(`http://localhost:3000/carts/${customer.id}`)
-      .then((r) => r.json())
-      .then((data) => setCostumes(data))
+    const fetchData = async () => {
+      const result = await fetch(`http://localhost:3000/carts/${customer.id}`)
+      const data = await result.json();
+      setCostumes(data);
+      console.log(data)
+    }
+    fetchData();
   }, []);
+
 return (
   <div>
-      <Header></Header>
+    Hello world
+      {/* <Header></Header>
     <div className="row" >
-      <Main></Main>
       <Basket InCartItems={InCartItems}></Basket>
-    </div>
+    </div> */}
   </div>
 )
 }

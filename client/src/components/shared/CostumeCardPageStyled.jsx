@@ -4,7 +4,7 @@ import styled from "styled-components";
 const CostumeCardPageStyled = styled.div`
   > .mainContainer {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 60fr 40fr;
   }
   > .mainContainer > .imageContainer {
     padding: 2rem;

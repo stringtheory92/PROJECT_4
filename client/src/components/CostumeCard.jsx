@@ -14,7 +14,11 @@ function CostumeCard({ costume }) {
     <CostumeCardStyled onClick={handleClick}>
       <img src={costume_image} alt={name} />
       <h2>{name}</h2>
-      <p>{price}</p>
+      <p>
+        <span className="only">${(price * 1.25).toFixed(2)}</span> $
+        {price.toFixed(2)}
+        {/* <span className="only">Only</span> ${price.toFixed(2)} */}
+      </p>
     </CostumeCardStyled>
   );
 }
