@@ -29,7 +29,7 @@ function Navbar({ onLogout, customer }) {
   const cartBtnStyles = {
     padding: "0.6rem 1.5rem",
   };
-
+  console.log("customer nav: ", customer);
   return (
     <NavBarStyled>
       <div className="links">

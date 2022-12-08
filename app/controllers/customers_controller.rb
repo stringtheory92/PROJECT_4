@@ -17,7 +17,10 @@ class CustomersController < ApplicationController
         
         customer = Customer.create!(customer_params)
         if customer.valid?
+            cart = Cart.create!(customer_id: customer.id)
+            if cart.valid?
             render json: customer, status: :created
+            end
         else 
             render json: {errors: user.errors.full_messages}, status: :unprocessable_entity
         end
