@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import CustomerUpdateForm from "./CustomerUpdateForm";
 import flash from "../bgs/fat-flash.webp";
 import hulk from "../bgs/fat-hulk.webp";
 import spiderman1 from "../bgs/fat-spiderman.jpg";
@@ -10,6 +11,11 @@ import wonderWoman from "../bgs/fat-wonder-woman.jpeg";
 import bg from "../bgs/comics_bg.jpg";
 
 function Home() {
+  const [isUpdatingCustomer, setIsUpdatingCustomer] = useState(false);
+
+  const handleUpdateStateToggle = (e) => {
+    setIsUpdatingCustomer((status) => !status);
+  };
   const backgroundStyles = {
     backgroundImage: `url(${bg})`,
     backgroundSize: "stretch",
@@ -86,6 +92,11 @@ function Home() {
             Class
           </span>
         </h1>
+        {isUpdatingCustomer ? (
+          <CustomerUpdateForm />
+        ) : (
+          <button onClick={handleUpdateStateToggle}>Update Information</button>
+        )}
       </div>
     </>
   );
