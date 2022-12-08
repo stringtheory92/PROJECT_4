@@ -8,6 +8,7 @@ class CustomersController < ApplicationController
     def show 
         customer = Customer.find_by(id: session[:customer_id])
         if customer
+            customer[:cart_contents] = customer.cart_contents
             render json: customer, status: :ok
         else
             render json: {error: "Not authorized"}, status: :unauthorized
