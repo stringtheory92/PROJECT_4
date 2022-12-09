@@ -36,3 +36,60 @@
     transform: rotate(360deg);
   }
 }
+
+.basketSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background: linear-gradient(to bottom, rgb(119, 214, 252), rgb(6, 6, 150));
+  border-radius: 50px;
+  padding: 10px;
+  margin: 10px;
+  box-shadow: 0px 0px 5px #ccc;
+  width: 45%;
+  float: right;
+}
+
+.basket-card {
+  border: 2px solid black;
+  border-radius: 8px;
+  margin: 10px;
+  padding: 10px;
+  float: right;
+  border-width: 2px 4px 4px 2px;
+  border-style: solid;
+  border-image: 
+    linear-gradient(to right, 
+      red, orange, yellow, green, blue, indigo, violet) 2;
+} */
+
+.basket-card h2 {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.basket-card p {
+  font-size: 1rem;
+}
+
+.basket-card button {
+  background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+  background-size: 600%;
+  animation: rainbow 5s linear infinite;
+} 
+
+@keyframes rainbow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.basket-card button:hover {
+  animation: rainbow 10s linear infinite;
+}

@@ -69,6 +69,8 @@ function App() {
     navigate("/");
   };
 
+  // const deleteCostume = (
+
   return (
     <div className="App">
       <GlobalStyle />
@@ -91,7 +93,7 @@ function App() {
             )
           }
         />
-        <Route path="/carts/:id" element={<Cart />} />
+        <Route path="/carts/:id" element={<Cart customer={customer} />} />
         <Route path="/collection" element={<Collection />} />
         <Route
           path="/collection/:id"
